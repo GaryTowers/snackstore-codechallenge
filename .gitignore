@@ -1,0 +1,8 @@
+node_modules
+storage
+.DS_Store
+.idea
+dump.rdb
+!.gitkeep
+.env
+npm-debug.log
