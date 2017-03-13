@@ -18,3 +18,7 @@
 const Route = use('Route')
 
 Route.on('/').render('welcome')
+
+Route.group('api',function () {
+  Route.resource('products', 'api/ProductController')
+}).prefix('/api/v1')//.middleware('auth:basic')
