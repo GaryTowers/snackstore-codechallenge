@@ -20,5 +20,11 @@ const Route = use('Route')
 Route.on('/').render('welcome')
 
 Route.group('api',function () {
+  // Auth
+  Route.post('login', 'api/UserController.login')
+
+  // Resourceful
   Route.resource('products', 'api/ProductController')
+  Route.resource('users', 'api/UserController')
+
 }).prefix('/api/v1')//.middleware('auth:basic')
