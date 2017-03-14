@@ -11,6 +11,7 @@
 |
 */
 const providers = [
+  'adonis-auth/providers/AuthManagerProvider',
   'adonis-framework/providers/ConfigProvider',
   'adonis-framework/providers/EnvProvider',
   'adonis-framework/providers/EventProvider',
@@ -28,8 +29,8 @@ const providers = [
   'adonis-lucid/providers/LucidProvider',
   'adonis-lucid/providers/FactoryProvider',
   'adonis-middleware/providers/AppMiddlewareProvider',
-  'adonis-auth/providers/AuthManagerProvider',
-  'adonis-websocket/providers/WsProvider'
+  'adonis-validation-provider/providers/ValidatorProvider',
+  'adonis-websocket/providers/WsProvider',
 ]
 
 /*
@@ -63,20 +64,21 @@ const aceProviders = [
 |
 */
 const aliases = {
-  Command: 'Adonis/Src/Command',
-  Config: 'Adonis/Src/Config',
-  Database: 'Adonis/Src/Database',
-  Env: 'Adonis/Src/Env',
-  Event: 'Adonis/Src/Event',
-  Factory: 'Adonis/Src/Factory',
-  Hash: 'Adonis/Src/Hash',
-  Helpers: 'Adonis/Src/Helpers',
-  Lucid: 'Adonis/Src/Lucid',
+  Validator : 'Adonis/Addons/Validator',
+  Ws        : 'Adonis/Addons/Ws',
+  Command   : 'Adonis/Src/Command',
+  Config    : 'Adonis/Src/Config',
+  Database  : 'Adonis/Src/Database',
+  Env       : 'Adonis/Src/Env',
+  Event     : 'Adonis/Src/Event',
+  Factory   : 'Adonis/Src/Factory',
+  Hash      : 'Adonis/Src/Hash',
+  Helpers   : 'Adonis/Src/Helpers',
+  Lucid     : 'Adonis/Src/Lucid',
   Middleware: 'Adonis/Src/Middleware',
-  Route: 'Adonis/Src/Route',
-  Schema: 'Adonis/Src/Schema',
-  View: 'Adonis/Src/View',
-  Ws: 'Adonis/Addons/Ws'
+  Route     : 'Adonis/Src/Route',
+  Schema    : 'Adonis/Src/Schema',
+  View      : 'Adonis/Src/View',
 }
 
 /*
