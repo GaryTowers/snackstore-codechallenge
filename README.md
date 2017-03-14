@@ -67,7 +67,12 @@ $npm install mysql --save
   
 ##### Configure your database
 
-Open the env file and update it with your database credentials.
+Rename the example file .env.example to .env and update it with your database credentials.
+
+```bash
+$mv .env.example .env
+$vi .env
+```
 
 ##### Run the migrations
 
