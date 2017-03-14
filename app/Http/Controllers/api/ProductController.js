@@ -66,8 +66,11 @@ class ProductController {
   * destroy(request, response) {
     const productId = request.param('id')
     const product = yield Product.find(productId)
-    yield product.delete()
-    response.ok('Product was deleted')
+    if (product) {
+      yield product.delete()
+      response.ok('Product was deleted')
+    }
+    response.notFound('Product was not found')
   }
 
 }

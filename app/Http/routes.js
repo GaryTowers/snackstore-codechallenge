@@ -23,6 +23,11 @@ Route.group('api',function () {
   // Auth
   Route.post('login', 'api/UserController.login')
 
+  // Admin
+  Route.post('products', 'api/ProductController.store').middleware('admin')
+  Route.put('products/:id', 'api/ProductController.update').middleware('admin')
+  Route.delete('products/:id', 'api/ProductController.destroy').middleware('admin')
+
   // Product index
   //Route.get('products', 'api/ProductController.index')
 
