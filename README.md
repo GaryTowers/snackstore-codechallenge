@@ -27,18 +27,21 @@ and some more requirements for extra credits:
 ##### Requirement 2.i IS NOT inside this code
 
 Considering *my best approach* to look up for data model integrity,
- the logging of the updates of the products price was taken to a trigger inside MySql using the following command:
+ the logging of the updates of the products price was taken to a trigger inside MySql using the following SQL command:
  
 ```sql
 DELIMITER $$
-    CREATE TRIGGER before_products_update
-    BEFORE UPDATE ON products
-      FOR EACH ROW
+  CREATE TRIGGER after_products_update
+  AFTER UPDATE ON products
+    FOR EACH ROW
+    BEGIN
+      IF NEW.price <> OLD.price THEN
         INSERT INTO audit_products
-          SELECT NULL, products.price, products.id, NOW()
+          SELECT NULL, OLD.price, products.id, NOW()
           FROM products WHERE id = OLD.id;
-          $$
-    DELIMITER ;
+      END IF;
+END;$$
+DELIMITER ;
 ```
 **_Why?_**
 
