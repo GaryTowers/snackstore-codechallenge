@@ -51,12 +51,17 @@ thus I considered a trigger as the best approach _(IMHO)_.
 
 ## Install instructions
 ##### Install dependencies
-  
+Run the following command to install all dependencies
+
+```bash
+$npm install
+```
+
 Depending on which database engine you may wish to use to test this repository with, 
 you'll need to proceed with its respective npm module installation.
 In my case, I used MySql which was installed with the following command:
 
-```
+```bash
 $npm install mysql --save 
 ```
   
@@ -68,7 +73,7 @@ Open the env file and update it with your database credentials.
 
 Open up a terminal and run the following command:
 
-```
+```bash
 $./ace migration:run
 ```
 
