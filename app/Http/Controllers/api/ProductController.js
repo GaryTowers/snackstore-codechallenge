@@ -5,8 +5,24 @@ const Product = use('App/Model/Product')
 class ProductController {
 
   * index(request, response) {
-    const products = yield Product.all()
-    response.ok(products)
+    const page    = request.input('page', 1)
+    const perPage = request.input('perPage', 20)
+    const query   = request.input('q')
+    if (query) {
+      const products = yield Product.query().where('name', query).fetch()
+      response.ok(products)
+    } else {
+      const products = yield Product.paginate(page, perPage)
+      response.ok(products)
+    }
+
+    // TODO sort by name and then by popularity and keep pagination
+
+    // var _ = require('lodash')
+    //_.sortBy(products, [function (o) { return o.name }])
+
+    // const products = yield Product.query().orderBy('name', 'asc').fetch()
+    // var paginatedProducts = products.slice(offset * get, (offset + 1) * get)
   }
 
   * create(request, response) {
