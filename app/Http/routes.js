@@ -20,13 +20,18 @@ const Route = use('Route')
 Route.on('/').render('welcome')
 
 Route.group('api',function () {
+  
   // Auth
   Route.post('login', 'api/UserController.login')
 
   // Admin
+  Route.delete('products/:id', 'api/ProductController.destroy').middleware('admin')
   Route.post('products', 'api/ProductController.store').middleware('admin')
   Route.put('products/:id', 'api/ProductController.update').middleware('admin')
-  Route.delete('products/:id', 'api/ProductController.destroy').middleware('admin')
+
+  // Logged users only
+  Route.post('likes', 'api/LikeController.store').middleware('logged')
+  Route.post('purchases', 'api/PurchaseController.store').middleware('logged')
 
   // Product index
   //Route.get('products', 'api/ProductController.index')
