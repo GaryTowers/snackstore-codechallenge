@@ -87,7 +87,7 @@ This will execute all the migrations inside database/migrations directory to cre
 ##### Start local server
 
 ```bash
-$npm run start
+$npm run serve
 ```
  
 ##### or development server with hot reload
