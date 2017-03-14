@@ -30,7 +30,15 @@ Considering *my best approach* to look up for data model integrity,
  the logging of the updates of the products price was taken to a trigger inside MySql using the following command:
  
 ```sql
-SELECT * FROM users WHERE id = 1;
+DELIMITER $$
+    CREATE TRIGGER before_products_update
+    BEFORE UPDATE ON products
+      FOR EACH ROW
+        INSERT INTO audit_products
+          SELECT NULL, products.price, products.id, NOW()
+          FROM products WHERE id = OLD.id;
+          $$
+    DELIMITER ;
 ```
 **_Why?_**
 
