@@ -23,8 +23,12 @@ Route.group('api',function () {
   // Auth
   Route.post('login', 'api/UserController.login')
 
+  // Product index
+  //Route.get('products', 'api/ProductController.index')
+
   // Resourceful
   Route.resource('products', 'api/ProductController')
+  Route.resource('purchases', 'api/PurchaseController')
   Route.resource('users', 'api/UserController')
 
 }).prefix('/api/v1')//.middleware('auth:basic')

@@ -2,15 +2,19 @@
 
 const Lucid = use('Lucid')
 
-class Product extends Lucid {
+class Purchase extends Lucid {
 
   static get deleteTimestamp () {
     return 'deleted_at'
   }
 
-  sales () {
+  details () {
     return this.hasMany('App/Model/PurchaseDetail')
+  }
+
+  user() {
+    return this.belongsTo('App/Model/User')
   }
 }
 
-module.exports = Product
+module.exports = Purchase
