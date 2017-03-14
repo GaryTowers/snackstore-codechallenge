@@ -8,6 +8,10 @@ class Product extends Lucid {
     return 'deleted_at'
   }
 
+  likedByUsers () {
+    return this.belongsToMany('App/Model/User', 'likes', 'product_id', 'user_id')
+  }
+
   sales () {
     return this.hasMany('App/Model/PurchaseDetail')
   }

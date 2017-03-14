@@ -7,6 +7,8 @@ class LoggedIn {
     if (!isLoggedIn) {
       response.unauthorized({error: 'Your must be logged-in to access this resource.'})
     }
+    const user = yield request.auth.getUser()
+    request.userId = user.id
     yield next
   }
 
