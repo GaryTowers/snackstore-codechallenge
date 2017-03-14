@@ -46,7 +46,7 @@ DELIMITER ;
 **_Why?_**
 
 Data may change from any other different way than our application's API.
-To preserve integrity, it is best to keep historical data storing as close as possible to the data itself being stored, 
+To preserve integrity, it is best to keep historical data storing as close as possible to the data itself being tracked, 
 thus I considered a trigger as the best approach _(IMHO)_.
 
 ## Install instructions
